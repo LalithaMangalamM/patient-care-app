@@ -1,50 +1,54 @@
-<h1><%= action_name.capitalize %> Patient</h1>
+<div class="flex items-center justify-center">
+  <div class="container mt-5">
+  <h1 class="mb-4"><%= action_name.capitalize %> Patient</h1>
 
-<%= form_with(model: @patient, local: true) do |form| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
-      <ul>
-        <% @patient.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: @patient, local: true, html: { class: 'needs-validation' }) do |form| %>
+    <% if @patient.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading">Errors:</h4>
+        <ul class="mb-0">
+          <% @patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :first_name, class: 'form-label' %>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :last_name, class: 'form-label' %>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :phone_number, class: 'form-label' %>
+      <%= form.text_field :phone_number, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :disease, class: 'form-label' %>
+      <%= form.text_field :disease, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :age, class: 'form-label' %>
+      <%= form.number_field :age, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.submit 'Save', class: 'btn btn-primary' %>
+      <%= link_to 'Back', patients_path, class: 'btn btn-secondary' %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :disease %>
-    <%= form.text_field :disease %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', patients_path %>
+</div>
+</div>
