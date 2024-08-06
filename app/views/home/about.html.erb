@@ -1,1 +1,42 @@
-<h1>This is an about page</h1>
+<div class="p-20">
+    <center>
+    <h1 class="mb-10 text-blue-700">PATIENTS</h1>
+    <table class="table table-success table-striped-columns p-10">
+  <thead>
+    <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Disease</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <th scope="row">1</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>30</td>
+      <td>john.doe@example.com</td>
+      <td>123-456-7890</td>
+      <td>Flu</td>
+      <td>Edit | Delete | Update</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jane</td>
+      <td>Smith</td>
+      <td>25</td>
+      <td>jane.smith@example.com</td>
+      <td>987-654-3210</td>
+      <td>Diabetes</td>
+      <td>Edit | Delete | Update</td>
+    </tr>
+  </tbody>
+</table>
+<%=link_to 'Add a Patient', home_add_path, class:"bg-blue-700 p-2 mt-10 text-white font-bold rounded-md hover:bg-blue-500"%>
+</center>
+</div>
