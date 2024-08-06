@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-    puts "This is to check"
+  end
+
+  def about
   end
 end
