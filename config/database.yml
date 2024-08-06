@@ -2,9 +2,9 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: misty
-  password: 12345
-  host: localhost
+  username: patients_crud_user
+  password: JiEtSm2XXAGGsvzKm48UDeIvvAowKPgm
+  host: postgresql://patients_crud_user:JiEtSm2XXAGGsvzKm48UDeIvvAowKPgm@dpg-cqp03gaj1k6c73da4qn0-a.singapore-postgres.render.com/patients_crud
 
 development:
   <<: *default
