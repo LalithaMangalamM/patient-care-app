@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,7 +10,6 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
   end
-
 
   def new
     @patient = Patient.new
@@ -41,11 +42,12 @@ class PatientsController < ApplicationController
   end
 
   private
-    def set_patient
-      @patient = Patient.find(params[:id])
-    end
 
-    def patient_params
-      params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :disease, :age)
-    end
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
+
+  def patient_params
+    params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :disease, :age)
+  end
 end
