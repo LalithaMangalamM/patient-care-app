@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +19,8 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
+    @patient.user_email = current_user.email
+    @patient.user_id = current_user.id
 
     if @patient.save
       redirect_to @patient, notice: 'Patient was successfully created.'
