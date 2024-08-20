@@ -1,6 +1,6 @@
 <div>
   <center>
-    <h1 class="mb-10 text-blue-700">CREATE DOCTOR</h1>
+    <h1 class="mb-10 text-blue-700">EDIT DOCTOR</h1>
 
     <%= form_with model: @doctor do |form| %>
       <div class="mb-5">
@@ -28,7 +28,7 @@
         <%= form.text_field :degree, class: "border p-2" %>
       </div>
 
-      <%= form.submit "Create Doctor", class: "bg-blue-700 p-2 mt-10 text-white font-bold rounded-md hover:bg-blue-500" %>
+      <%= form.submit "Update Doctor", class: "bg-blue-700 p-2 mt-10 text-white font-bold rounded-md hover:bg-blue-500" %>
     <% end %>
   </center>
 </div>
