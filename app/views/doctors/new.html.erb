@@ -1,3 +1,12 @@
-<h1>
-    <%=check%>
-</h1>
+<%= form_with model: Doctor.new do |form|%>
+<%= form.label :first_name %>
+<%= form.text_field :first_name %>
+<%= form.label :last_name %>
+<%= form.text_field :last_name %>
+<%= form.label :email %>
+<%= form.text_field :email %>
+<%= form.label :contact %>
+<%= form.text_field :contact %>
+<%= form.label :degree %>
+<%= form.text_field :degree %>
+<%end%>
