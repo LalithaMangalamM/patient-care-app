@@ -9,6 +9,7 @@
           <th>Phone Number</th>
           <th>Email</th>
           <th>DEGREE</th>
+          <th colspan="3"></th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,8 @@
             <td><%= doctor.contact %></td>
             <td><%= doctor.email %></td>
             <td><%= doctor.degree %></td>
+            <td><%=link_to 'Show', doctor%></td>
+            <td><%=link_to 'Delete', doctor, method: :delete%></td>
           </tr>
         <% end %>
       </tbody>

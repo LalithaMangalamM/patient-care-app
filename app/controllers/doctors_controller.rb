@@ -9,9 +9,21 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      redirect_to @doctor, notice: "Doctor was saved successfully"
+      redirect_to root_path, notice: "Doctor was saved successfully"
     else
       redirect_to :new
+    end
+  end
+  def show
+    @doctor = Doctor.find(params[:id])
+  end
+
+  def destroy
+    @doctor = Doctor.find(params[:id])
+    if @doctor.delete
+      redirect_to @doctor, notice: "Deleted sucessfully"
+    else
+      redirect_to root_path, notice: "There was an error deleting file"
     end
   end
 

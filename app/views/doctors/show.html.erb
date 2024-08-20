@@ -1,0 +1,4 @@
+<%=@doctor.first_name%>
+<%= form_with(model: @doctor, method: :delete, local: true) do %>
+  <%= submit_tag 'Delete', class: 'btn btn-danger' %>
+<% end %>
