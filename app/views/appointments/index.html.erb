@@ -1,0 +1,16 @@
+<div class="p-5">
+    <center>
+        <h1 class="text-blue-700 font-bold text-5xl">Appointments</h1>
+        <ol>
+            <%@appointments.each do |appointment|%>
+                <li>
+                    <h6>Doctor: <%=appointment.doctor_id%></h6>
+                    <h6>Patient: <%=appointment.patient_id%></h6>
+                    <%=appointment.created_at.strftime("%d-%h-%ys")%>
+                    <br>
+                    <br>
+                </li>
+            <%end%>
+        </ol> 
+    </center>
+</div>
