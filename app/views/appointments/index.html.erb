@@ -8,8 +8,11 @@
                     <h6>Patient: <%=appointment.patient_id%></h6>
                     <%=appointment.created_at.strftime("%d-%h-%y %H:%M:%S")%>
                     <br>
+                    <%=link_to "Show", appointment, class:"btn btn-primary"%>
+                    <%=link_to "Delete", appointment, class:"btn btn-danger"%>
                     <br>
-                </li>
+                    <br>
+                </br>
             <%end%>
         </ol> 
         <%=link_to "Add an appointment", new_appointment_path, class:"btn btn-primary"%>
