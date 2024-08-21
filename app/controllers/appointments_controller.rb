@@ -22,9 +22,9 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find(Appointment.find(params[:id]).doctor_id)
-    @patient = Patient.find(Appointment.find(params[:id]).patient_id)
     @appointment = Appointment.find(params[:id])
+    @doctor =@appointment.doctor
+    @patient = @appointment.patient
   end
 
   def destroy
