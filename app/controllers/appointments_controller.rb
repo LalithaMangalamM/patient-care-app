@@ -1,10 +1,29 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @appointments=Appointment.all
+    @appointments = Appointment.all
   end
+
   def new
-    @doctors=Doctor.all
-    @patients=Patient.all
+    @doctors = Doctor.all
+    @patients = Patient.all
+  end
+
+  def create
+    @appointment = Appointment.new(appointment_params)
+
+    if @appointment.save
+      redirect_to appointments_path, notice: 'Appointment created successfully.'
+    else
+      flash.now[:alert] = 'There was an error creating the appointment.'
+      render :new
+    end
+  end
+
+  private
+
+  def appointment_params
+    params.require(:appointment).permit(:doctor_id, :patient_id)
   end
 end

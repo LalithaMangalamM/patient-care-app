@@ -1,51 +1,65 @@
 <div class="text-center">
-    <h1 class="p-5 text-5xl text-blue-700 font-bold">Make an Appointment</h1>
-    
-    <div class="flex justify-center gap-10">
-        <div class="btn-group">
-            <p>Doctor </p>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="doctorDropdown">
-                Select a Doctor
-            </button>
-            <ul class="dropdown-menu">
-                <% @doctors.each do |doctor| %>
-                    <li><a class="dropdown-item doctor-item" href="#">Dr.<%= doctor.first_name %> <%= doctor.last_name %> - <%= doctor.degree %></a></li>
-                <% end %>
-            </ul>
-        </div>
+  <h1 class="p-5 text-5xl text-blue-700 font-bold">Make an Appointment</h1>
 
-        <div class="btn-group">
-            <p>Patient </p>
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="patientDropdown">
-                Select a Patient
-            </button>
-            <ul class="dropdown-menu">
-                <% @patients.each do |patient| %>
-                    <li><a class="dropdown-item patient-item" href="#"><%= patient.first_name %> <%= patient.last_name %></a></li>
-                <% end %>
-            </ul>
-        </div>
+  <%= form_with url: appointments_path, method: :post, local: true do %>
+  <div class="flex justify-center gap-10">
+    <div class="btn-group">
+      <p>Doctor </p>
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="doctorDropdown">
+        Select a Doctor
+      </button>
+      <ul class="dropdown-menu">
+        <% @doctors.each do |doctor| %>
+          <li>
+            <a class="dropdown-item doctor-item" href="#" data-doctor-id="<%= doctor.id %>">
+              Dr. <%= doctor.first_name %> <%= doctor.last_name %> - <%= doctor.degree %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    
-    <button class="btn btn-success m-5">Book An Appointment</button>
-</div>
+
+    <div class="btn-group">
+      <p>Patient </p>
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="patientDropdown">
+        Select a Patient
+      </button>
+      <ul class="dropdown-menu">
+        <% @patients.each do |patient| %>
+          <li>
+            <a class="dropdown-item patient-item" href="#" data-patient-id="<%= patient.id %>">
+              <%= patient.first_name %> <%= patient.last_name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <%= hidden_field_tag 'appointment[doctor_id]', nil, id: "doctorIdField" %>
+  <%= hidden_field_tag 'appointment[patient_id]', nil, id: "patientIdField" %>
+
+  <%= submit_tag "Book An Appointment", class: "btn btn-success m-5" %>
+<% end %>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.doctor-item').forEach(function (item) {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-                const doctorDropdown = document.getElementById('doctorDropdown');
-                doctorDropdown.textContent = this.textContent;
-            });
-        });
-
-        document.querySelectorAll('.patient-item').forEach(function (item) {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-                const patientDropdown = document.getElementById('patientDropdown');
-                patientDropdown.textContent = this.textContent;
-            });
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.doctor-item').forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const doctorDropdown = document.getElementById('doctorDropdown');
+        doctorDropdown.textContent = this.textContent;
+        document.getElementById('doctorIdField').value = this.getAttribute('data-doctor-id');
+      });
     });
+
+    document.querySelectorAll('.patient-item').forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const patientDropdown = document.getElementById('patientDropdown');
+        patientDropdown.textContent = this.textContent;
+        document.getElementById('patientIdField').value = this.getAttribute('data-patient-id');
+      });
+    });
+  });
 </script>
