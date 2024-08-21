@@ -36,6 +36,17 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def send_email_to_doctor
+    appointment = Appointment.find(params[:id])
+    AppointmentMailer.notify_doctor(appointment).deliver_now
+    redirect_to appointment_path(appointment), notice: 'Email sent to doctor.'
+  end
+
+  def send_email_to_patient
+    appointment = Appointment.find(params[:id])
+    AppointmentMailer.notify_patient(appointment).deliver_now
+    redirect_to appointment_path(appointment), notice: 'Email sent to patient.'
+  end
   private
 
   def appointment_params
