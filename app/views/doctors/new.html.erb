@@ -3,7 +3,7 @@
 <%= form_with model: @doctor do |form| %>
     <%if form.object.errors.any?%>
     <%form.object.errors.full_messages.each do |message|%>
-    <div class="alert alert-dark mt-[-300px]" role="alert">
+    <div class="alert alert-danger mt-[-300px]" role="alert">
       <%=message%>
 </div>
     <%end%>
