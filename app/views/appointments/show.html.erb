@@ -7,7 +7,7 @@
     <p>Name: <%=@patient.first_name%> <%=@patient.last_name%></p>
     <p>Problem: <%=@patient.disease%></p>
     <p>Contact: <%=@patient.email%></p>
-    <p><span class="font-bold">Time: <%=@appointment.created_at.strftime("%d-%h-%y %H:%M:%S")%></span></p>
+    <p><span class="font-bold">Time: <%=@appointment.appointment_at.strftime("%d-%h-%y %H:%M:%S")%></span></p>
     <div class="flex items-center justify-center gap-10">
         <%= button_to "Send Email to Doctor", send_email_to_doctor_appointment_path(@appointment), method: :post, class: 'btn btn-primary' %>
   <%= button_to "Send Email to Patient", send_email_to_patient_appointment_path(@appointment), method: :post, class: 'btn btn-primary' %>

@@ -16,6 +16,8 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to appointments_path, notice: 'Appointment created successfully.'
     else
+      @doctors = Doctor.all
+      @patients = Patient.all
       flash.now[:alert] = 'There was an error creating the appointment.'
       render :new
     end
@@ -50,6 +52,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:doctor_id, :patient_id)
+    params.require(:appointment).permit(:doctor_id, :patient_id, :appointment_at)
   end
 end

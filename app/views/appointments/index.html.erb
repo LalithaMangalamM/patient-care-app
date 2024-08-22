@@ -1,20 +1,38 @@
-<div class="p-5">
-    <center>
-        <h1 class="text-blue-700 font-bold text-5xl">Appointments</h1>
-        <ol>
-            <%@appointments.each do |appointment|%>
-                <li>
-                    <h6>Doctor: <%=appointment.doctor_id%></h6>
-                    <h6>Patient: <%=appointment.patient_id%></h6>
-                    <%=appointment.created_at.strftime("%d-%h-%y %H:%M:%S")%>
-                    <br>
-                    <%=link_to "Show", appointment, class:"btn btn-primary"%>
-                    <%=link_to "Delete", appointment, class:"btn btn-danger"%>
-                    <br>
-                    <br>
-                </br>
-            <%end%>
-        </ol> 
-        <%=link_to "Add an appointment", new_appointment_path, class:"btn btn-primary"%>
-    </center>
+<div class="p-20">
+  <center>
+    <h1 class="mb-10 text-5xl font-bold text-blue-700">Appointments</h1>
+    <table class="table table-success table-striped-columns p-10">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Disease</th>
+          <th>Doctor Assigned</th>
+          <th>Degree</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td><%= appointment.patient.first_name %> <%= appointment.patient.last_name %></td>
+            <td><%= appointment.patient.age %></td>
+            <td><%= appointment.patient.disease %></td> <!-- Changed "age" to "disease" -->
+            <td><%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></td>
+            <td><%= appointment.doctor.degree %></td>
+            <td><%= appointment.appointment_at.strftime("%d-%b-%Y") %></td>
+            <td><%= appointment.appointment_at.strftime("%I:%M %p") %></td>
+            <td>
+              <%= link_to "Show", appointment, class: "btn btn-primary" %>
+              <%= link_to "Delete", appointment, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Add an appointment', new_appointment_path, class: "bg-blue-700 p-2 mt-10 text-white font-bold rounded-md hover:bg-blue-500" %>
+  </center>
 </div>
