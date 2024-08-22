@@ -1,14 +1,16 @@
 <div>
   <center>
     <%= form_with model: @doctor do |form| %>
-    <%if form.object.errors.any?%>
-    <%form.object.errors.full_messages.each do |message|%>
-    <div class="alert alert-danger mt-[-300px]" role="alert">
-      <%=message%>
-</div>
-    <%end%>
-    <%end%>
-    <h1 class="text-5xl font-bold mb-10 text-blue-700">EDIT DOCTOR</h1>
+    
+      <% if form.object.errors.any? %>
+        <% form.object.errors.full_messages.each do |message| %>
+          <div class="alert alert-danger mt-[-300px]" role="alert">
+            <%= message %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <h1 class="text-5xl font-bold mb-10 text-blue-700">EDIT DOCTOR</h1>
 
       <div class="mb-5">
         <%= form.label :first_name, class: "block mb-1" %>
@@ -36,6 +38,7 @@
       </div>
 
       <%= form.submit "Update Doctor", class: "bg-blue-700 p-2 mt-10 text-white font-bold rounded-md hover:bg-blue-500" %>
+    
     <% end %>
   </center>
 </div>
