@@ -16,7 +16,7 @@
     <%= button_to "Send Email to Patient", send_email_to_patient_appointment_path(@appointment), method: :post, class: 'btn btn-primary' %>
     <%= link_to "Back", appointments_path, class: "btn btn-secondary" %>
 
-    <%= form_with(model: @appointment, method: :delete, local: true) do %>
+    <%= form_with(model: @appointment, method: :delete) do %>
       <%= submit_tag 'Delete', class: 'btn btn-danger' %>
     <% end %>
   </div>
