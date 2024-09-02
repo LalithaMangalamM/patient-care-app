@@ -44,7 +44,7 @@
   total_retained = report.total_retained
   total_retained_memsize = report.total_retained_memsize
 
-  Rails.logger.info "Memory Profiling Report for new method #{action_name}:"
+  Rails.logger.info "Memory Profiling Report for #{action_name}:"
   Rails.logger.info "Total Allocated: #{total_allocated}"
   Rails.logger.info "Total Allocated Memory Size: #{total_allocated_memsize}"
   Rails.logger.info "Total Retained: #{total_retained}"
