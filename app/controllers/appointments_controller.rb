@@ -2,12 +2,22 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @profiler = MemoryProfilerTask.new('index')
+    @profiler.start
+
     @appointments = Appointment.all
+
+    @profiler.stop_and_log
   end
 
   def new
+    @profiler = MemoryProfilerTask.new('new appointment')
+    @profiler.start
+
     @doctors = Doctor.all
     @patients = Patient.all
+    
+    @profiler.stop_and_log
   end
 
   def create
