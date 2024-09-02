@@ -20,9 +20,9 @@
             <td><%= doctor.contact %></td>
             <td><%= doctor.email %></td>
             <td><%= doctor.degree %></td>
-            <td><%=link_to 'Show', doctor%></td>
-            <td><%= link_to 'Update', edit_doctor_path(doctor) %></td>
-            <td><%=link_to 'Delete', doctor, method: :delete%></td>
+            <td><%=link_to 'Show', doctor, class: "btn btn-primary"%></td>
+            <td><%= link_to 'Update', edit_doctor_path(doctor), class: "btn btn-secondary" %></td>
+            <td><%=link_to 'Delete', doctor, method: :delete, class: "btn btn-danger"%></td>
           </tr>
         <% end %>
       </tbody>
