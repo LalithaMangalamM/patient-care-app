@@ -26,6 +26,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem 'pg'
 gem 'memory_profiler'
+gem "view_component"
 
 
 # Use Redis adapter to run Action Cable in production
