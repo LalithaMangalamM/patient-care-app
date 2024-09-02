@@ -1,5 +1,3 @@
-# lib/memory_profiler_service.rb
-
 class MemoryProfilerTask
   def initialize(action_name)
     @action_name = action_name
@@ -22,7 +20,5 @@ class MemoryProfilerTask
     Rails.logger.info "Total Allocated Memory Size: #{total_allocated_memsize}"
     Rails.logger.info "Total Retained: #{total_retained}"
     Rails.logger.info "Total Retained Memory Size: #{total_retained_memsize}"
-    Rails.logger.info "No memory profiler report available."
-
   end
 end
