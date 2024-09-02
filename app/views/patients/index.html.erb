@@ -1,6 +1,6 @@
 <%
-  @profiler = MemoryProfilerTask.new('patient index')
-  @profiler.start
+  profiler = MemoryProfiler
+  profiler.start
 %>
 <div class="p-20">
   <center>
@@ -38,5 +38,16 @@
   </center>
 </div>
 <%
-  @profiler.stop_and_log
+  report = profiler.stop
+  total_allocated = report.total_allocated
+  total_allocated_memsize = report.total_allocated_memsize
+  total_retained = report.total_retained
+  total_retained_memsize = report.total_retained_memsize
+
+  Rails.logger.info "Memory Profiling Report for new method #{action_name}:"
+  Rails.logger.info "Total Allocated: #{total_allocated}"
+  Rails.logger.info "Total Allocated Memory Size: #{total_allocated_memsize}"
+  Rails.logger.info "Total Retained: #{total_retained}"
+  Rails.logger.info "Total Retained Memory Size: #{total_retained_memsize}"
+  Rails.logger.info "No memory profiler report available."
 %>
