@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'home/add'
   resources :patients
   resources :doctors
+  resources :appointments do
+    post 'send_email_to_doctor', on: :member
+    post 'send_email_to_patient', on: :member
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

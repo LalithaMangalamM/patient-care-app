@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your appointment has been confirmed</h1>
+    <p>Details of the appointment are given below:</p>
+    <p>
+      Doctor Assigned: <%= @doctor.first_name %> <%= @doctor.last_name %><br>
+      Doctor Degree: <%= @doctor.degree %><br>
+      Disease: <%= @patient.disease %>
+    </p>
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>

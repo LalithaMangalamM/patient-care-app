@@ -1,0 +1,24 @@
+<div class="mt-10">
+  <center>
+    <%= form_with model: @appointment, url: appointments_path, method: :post, scope: :appointment do |form| %>
+      
+      <h1 class="text-blue-700 font-bold">Add An Appointment</h1>
+      
+      <div class="flex items-center justify-center gap-10 w-full mt-10">
+        <%= form.select :doctor_id, @doctors.map { |doctor| [doctor.first_name + " " + doctor.last_name + " - " + doctor.degree, doctor.id] }, prompt: "Select Doctor" %>
+        <%= form.select :patient_id, @patients.map { |patient| [patient.first_name + " " + patient.last_name + " - " + patient.disease, patient.id] }, prompt: "Select Patient" %>
+      </div>
+      
+      <div class="flex flex-col items-center justify-center mt-10 gap-5">
+        <div class="flex gap-2 items-center justify-center">
+          <%= form.datetime_select :appointment_at %>
+        </div>
+      </div>
+      
+      <center>
+        <%= form.submit "Book An Appointment", class: "btn btn-primary mt-10" %>
+      </center>
+      
+    <% end %>
+  </center>
+</div>
