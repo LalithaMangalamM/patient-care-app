@@ -70,3 +70,6 @@ end
 gem "devise", "~> 4.9"
 gem "letter_opener", group: :development
 gem "dotenv-rails"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', "~>1.0"
