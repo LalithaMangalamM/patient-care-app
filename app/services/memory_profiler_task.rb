@@ -1,7 +1,5 @@
 # lib/memory_profiler_service.rb
 
-require 'memory_profiler'
-
 class MemoryProfilerTask
   def initialize(action_name)
     @action_name = action_name
