@@ -8,9 +8,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.enable_reloading = true
 
-  ENV['GOOGLE_OAUTH_CLIENT_ID'] = Rails.application.credentials.dig(:google_oauth_client_id)
-  ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = Rails.application.credentials.dig(:google_oauth_client_secret)
-
   # Do not eager load code on boot.
   config.eager_load = false
 
