@@ -4,6 +4,7 @@ ruby "3.2.2"
 
 gem "skylight"
 gem "view_component"
+gem "haml-rails"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"

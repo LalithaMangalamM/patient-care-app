@@ -1,0 +1,2 @@
+class PerformanceTestController < ApplicationController
+end
