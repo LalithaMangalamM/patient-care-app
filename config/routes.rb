@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'performance_test/complex_haml_component'
   get 'performance_test/complex_erb_component'
 
+  get 'performance_test/icon_from_helper'
+  get 'performance_test/icon_from_gem'
+
   get 'performance_test/complex_haml_view'
   get 'performance_test/complex_erb_view'
 
