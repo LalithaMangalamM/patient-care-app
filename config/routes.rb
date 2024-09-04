@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   get 'home/about'
   root 'home#index'
   get 'home/add'
@@ -10,6 +13,12 @@ Rails.application.routes.draw do
     post 'send_email_to_patient', on: :member
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  get 'performance_test/complex_haml_component'
+  get 'performance_test/complex_erb_component'
+
+  get 'performance_test/complex_haml_view'
+  get 'performance_test/complex_erb_view'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

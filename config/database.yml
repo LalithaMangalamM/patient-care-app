@@ -13,5 +13,6 @@ test:
   database: patient_care_app
 
 production:
-  <<: *default
-  database: patient_care_app
+  url: <%= ENV['DATABASE_URL'] %>
+  variables:
+    statement_timeout: <%= ENV["STATEMENT_TIMEOUT"] || "5s" %>

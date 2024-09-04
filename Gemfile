@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
+gem "skylight"
+gem "view_component"
+gem "haml-rails"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 gem 'tailwindcss-rails'
@@ -71,3 +75,7 @@ end
 
 gem "devise", "~> 4.9"
 gem "letter_opener", group: :development
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', "~>1.0"
+gem 'dotenv-rails', groups: [:development, :test]
