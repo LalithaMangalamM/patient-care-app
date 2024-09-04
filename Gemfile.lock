@@ -142,6 +142,7 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     memory_profiler (1.0.2)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.24.1)
     msgpack (1.7.2)
@@ -156,6 +157,8 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+    nokogiri (1.16.7-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
@@ -234,6 +237,8 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
+    tailwindcss-rails (2.7.0-arm64-darwin)
+      railties (>= 7.0.0)
     tailwindcss-rails (2.7.0-x86_64-darwin)
       railties (>= 7.0.0)
     tailwindcss-rails (2.7.0-x86_64-linux)
@@ -246,6 +251,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (3.14.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -263,6 +272,7 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-23
   x86_64-linux
 
@@ -284,6 +294,7 @@ DEPENDENCIES
   tailwindcss-rails
   turbo-rails
   tzinfo-data
+  view_component
   web-console
 
 RUBY VERSION
