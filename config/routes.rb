@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get 'performance_test/empty'
+
   get 'performance_test/complex_haml_component'
   get 'performance_test/complex_erb_component'
 
